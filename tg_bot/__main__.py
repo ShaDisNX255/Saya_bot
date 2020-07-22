@@ -19,13 +19,15 @@ from tg_bot.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
 Hi {}, my name is {}! 
-I am an Anime themed group management bot with some fun extras [;)](https://telegra.ph/file/095d7e696096e21b06447.jpg)
+I am an Anime themed group management bot with some fun extras ;)
 
 You can find the list of available commands with /help.
 
 [Kigyō's Repo](https://github.com/Dank-del/EnterpriseALRobot) 
 
 The support group chat is at @YorktownEagleUnion
+
+Saya Bot specifically edited by @ShaDisNX255
 """
 
 HELP_STRINGS = """
@@ -45,7 +47,7 @@ And the following:
 """.format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n")
 
 
-KIGYO_IMG = "https://telegra.ph/file/e5100e06c03767af80023.jpg"
+KIGYO_IMG = "https://dthezntil550i.cloudfront.net/nl/latest/nl1902201426381960008179947/1280_960/e8504f0d-a3a9-404d-9734-1ceea2d5753c.png"
 
 DONATE_STRING = """I'm free for everyone!! """
 
