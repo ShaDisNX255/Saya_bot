@@ -2,7 +2,7 @@
    "addons": [
       {
          "options": {
-            "version": "9.6"
+            "version": "12"
          },
          "plan": "heroku-postgresql"
       }
@@ -113,6 +113,6 @@
       "manager",
       "Kigyō"
    ],
-   "name": "Kigyō bot",
-   "repository": "https://github.com/KassemSYR/EnterpriseALRobot"
+   "name": "Saya bot",
+   "repository": "https://github.com/ShaDisNX255/Saya_bot"
 }
