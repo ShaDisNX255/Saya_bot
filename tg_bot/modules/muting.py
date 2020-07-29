@@ -34,7 +34,7 @@ def check_user(user_id: int, bot: Bot, chat: Chat) -> Optional[str]:
         return reply
 
     if is_user_admin(chat, user_id, member) or user_id in SARDEGNA_USERS:
-        reply = "I really wish I could mute admins...Perhaps a Punch?"
+        reply = "W-why would I mute admin-sama?"
         return reply
 
     return None
