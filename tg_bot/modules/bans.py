@@ -193,7 +193,7 @@ def punch(bot: Bot, update: Update, args: List[str]) -> str:
         return log_message
 
     if is_user_ban_protected(chat, user_id):
-        message.reply_text("I really wish I could punch this user....")
+        message.reply_text("I really wish I could kick this user (Ծ‸ Ծ)")
         return log_message
 
     res = chat.unban_member(user_id)  # unban on current user = kick
