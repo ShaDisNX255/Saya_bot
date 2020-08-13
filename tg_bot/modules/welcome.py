@@ -202,7 +202,7 @@ def new_member(bot: Bot, update: Update, job_queue: JobQueue):
                         }
                     })
                     new_join_mem = f"[{escape_markdown(new_mem.first_name)}](tg://user?id={user.id})"
-                    message = msg.reply_text(f"{new_join_mem}-san, click the button to prove you are human. You have 120 seconds or I will kick you σ_σ.",
+                    message = msg.reply_text(f"{new_join_mem}, click the button below to prove you're human.\nYou have 160 seconds.",
                                              reply_markup=InlineKeyboardMarkup([{InlineKeyboardButton(
                                                  text="Yes, I'm human.",
                                                  callback_data=f"user_join_({new_mem.id})")}]),
@@ -216,7 +216,7 @@ def new_member(bot: Bot, update: Update, job_queue: JobQueue):
                     job_queue.run_once(
                         partial(
                             check_not_bot, new_mem, chat.id, message.message_id
-                        ), 120, name="welcomemute"
+                        ), 160, name="welcomemute"
                     )
 
         if welcome_bool:
@@ -636,7 +636,7 @@ WELC_MUTE_HELP_TXT = (
     "- `/welcomemute soft`: restricts new members from sending media for 24 hours.\n"
     "- `/welcomemute strong`: mutes new members till they tap on a button thereby verifying they're human.\n"
     "- `/welcomemute off`: turns off welcomemute.\n"
-    "`Note:` Strong mode kicks a user from the chat if they dont verify in 120seconds. They can always rejoin though"
+    "`Note:` Strong mode kicks a user from the chat if they dont verify in 160seconds. They can always rejoin though"
                      )
 
 @run_async
@@ -725,4 +725,3 @@ __command_list__ = ["welcome", "goodbye", "setwelcome", "setgoodbye", "resetwelc
 __handlers__ = [NEW_MEM_HANDLER, LEFT_MEM_HANDLER, WELC_PREF_HANDLER, GOODBYE_PREF_HANDLER,
                 SET_WELCOME, SET_GOODBYE, RESET_WELCOME, RESET_GOODBYE, CLEAN_WELCOME,
                 WELCOME_HELP, WELCOMEMUTE_HANDLER, BUTTON_VERIFY_HANDLER, WELCOME_MUTE_HELP]
-
