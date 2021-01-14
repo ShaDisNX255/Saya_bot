@@ -1,5 +1,5 @@
-![Enterprise](https://i.imgur.com/IYqzviU.jpg)
-# Kigyō bot
+![Enterprise](https://dthezntil550i.cloudfront.net/nl/latest/nl1902201426381960008179947/1280_960/e8504f0d-a3a9-404d-9734-1ceea2d5753c.png)
+# Saya Bot
 
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Dank-del/EnterpriseALRobot) ![Maintenance](https://img.shields.io/badge/Maintained%3F-Yes-green) [![Join Support!](https://img.shields.io/badge/Support%20Chat-EagleUnion-red)](https://t.me/YorktownEagleUnion) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/cfb691a93a064d9ea753ef2b5fccf797)](https://www.codacy.com/manual/Dank-del/EnterpriseALRobot?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Dank-del/EnterpriseALRobot&amp;utm_campaign=Badge_Grade)
@@ -7,12 +7,13 @@
 
 A modular telegram Python bot running on python3 with an sqlalchemy database.
 Concept taken from [Saitama Robot](https://github.com/AnimeKaizoku/SaitamaRobot)
+Forked from Kigyō [Repo](https://github.com/Dank-del/EnterpriseALRobot)
+ 
 
-Originally a marie fork - Kigyō has evolved further and was built to be more useful for Anime Chats. 
+Can be found on telegram as [Saya](https://t.me/SayaAman_bot).
 
-Can be found on telegram as [Kigyōbot](https://t.me/kigyorobot).
-
-The Support group can be reached out to at [Eagle Union](https://t.me/YorktownEagleUnion), where you can ask for help setting up your bot, discover/request new features, report bugs, and stay in the loop whenever a new update is available. 
+This bot is maintained by ShaDisNX255 who you can contact in Telegram with this link: [ShaDisNX255](https://t.me/ShaDisNX255).
+You can view the Gban logs for this bot here: [Gban Logs](https://t.me/Saya_GBans)
 
  
 
