@@ -307,6 +307,7 @@ __help__ = """
  - /promote: promotes the user replied to
  - /demote: demotes the user replied to
  - /settitle: sets a custom title for an admin that the bot promoted
+ - /zombies: scan and clean zombies
 """
 
 ADMINLIST_HANDLER = DisableAbleCommandHandler(["adminlist", "admins"], adminlist)
