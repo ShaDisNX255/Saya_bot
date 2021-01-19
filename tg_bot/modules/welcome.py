@@ -110,15 +110,15 @@ def new_member(bot: Bot, update: Update, job_queue: JobQueue):
 
             # Welcome Devs
             elif new_mem.id in DEV_USERS:
-                update.effective_message.reply_text("Whoa! A member of the Eagle Union just joined!")
+                update.effective_message.reply_text("Whoa! A member of the Dev Union just joined!")
 
             # Welcome Sudos
             elif new_mem.id in SUDO_USERS:
-                update.effective_message.reply_text("Huh! A Royal Nation just joined! Stay Alert!")
+                update.effective_message.reply_text("Huh! A Sudo Union member just joined! Stay Alert!")
 
             # Welcome Support
             elif new_mem.id in SUPPORT_USERS:
-                update.effective_message.reply_text("Huh! Someone with a Sakura Nation level just joined!")
+                update.effective_message.reply_text("Huh! Someone with a Support Union level just joined!")
 
             # Welcome Whitelisted
             elif new_mem.id in SARDEGNA_USERS:
@@ -126,7 +126,7 @@ def new_member(bot: Bot, update: Update, job_queue: JobQueue):
 
             # Welcome Sardegnas
             elif new_mem.id in WHITELIST_USERS:
-                update.effective_message.reply_text("Oof! A Neptunia Nation just joined!")
+                update.effective_message.reply_text("Oof! An Immunity Union member just joined!")
 
             # Welcome yourself
             elif new_mem.id == bot.id:
@@ -297,7 +297,7 @@ def left_member(bot: Bot, update: Update):
 
             # Give the devs a special goodbye
             elif left_mem.id in DEV_USERS:
-                update.effective_message.reply_text("See you later at the Eagle Union!")
+                update.effective_message.reply_text("See you later at the Dev Union!")
                 return
 
             # if media goodbye, use appropriate function for it

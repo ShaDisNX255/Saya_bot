@@ -28,16 +28,16 @@ def check_user_id(user_id: int, bot: Bot) -> Optional[str]:
     return reply
 
 #I added extra new lines 
-Nations = """ Kigyō has bot access levels we call as *"Nation Levels"*
-\n*Eagle Union* - Devs who can access the bots server and can execute, edit, modify bot code. Can also manage other Nations
+Nations = """ Saya has bot access levels we call as *"Union Levels"*
+\n*Dev Union* - Devs who can access the bots server and can execute, edit, modify bot code. Can also manage other Nations
 \n*God* - Only one exists, bot owner. 
-Owner has complete bot access, including bot adminship in chats Kigyō is at.
-\n*Royals* - Have super user access, can gban, manage Nations lower than them and are admins in Kigyō.
-\n*Sakuras* - Have access go globally ban users across Kigyō.
+Owner has complete bot access, including bot adminship in chats Saya is at.
+\n*Sudo* - Have super user access, can gban, manage Nations lower than them and are admins in Saya.
+\n*Support* - Have access go globally ban users across Saya.
 \n*Sardegnas* - Same as Neptunians but can unban themselves if banned.
-\n*Neptunians* - Cannot be banned, muted flood kicked but can be manually banned by admins.
+\n*Immunity* - Cannot be banned, muted flood kicked but can be manually banned by admins.
 \n*Disclaimer*: The Nation levels in Kigyō are there for troubleshooting, support, banning potential scammers.
-Report abuse or ask us more on these at [Eagle Union](https://t.me/YorktownEagleUnion).
+Report abuse or ask me more on these at [ShaDisNX255](https://t.me/ShaDisNX255).
 """
 # do not async, not a handler 
 def send_Nations(update):
@@ -64,16 +64,16 @@ def addsudo(bot: Bot, update: Update, args: List[str]) -> str:
         data = json.load(infile)
 
     if user_id in SUDO_USERS:
-        message.reply_text("This member is already a Royal Nation")
+        message.reply_text("This member is already a Sudo Union")
         return ""
 
     if user_id in SUPPORT_USERS:
-        rt += "Requested HA to promote a Sakura Nation to Royal."
+        rt += "Requested HA to promote a Support to Sudo Union."
         data['supports'].remove(user_id)
         SUPPORT_USERS.remove(user_id)
 
     if user_id in WHITELIST_USERS:
-        rt += "Requested HA to promote a Neptunia Nation to Royal."
+        rt += "Requested HA to promote a Immunity to Sudo Union."
         data['whitelists'].remove(user_id)
         WHITELIST_USERS.remove(user_id)
 
@@ -84,7 +84,7 @@ def addsudo(bot: Bot, update: Update, args: List[str]) -> str:
         json.dump(data, outfile, indent=4)
 
     update.effective_message.reply_text(
-        rt + "\nSuccessfully set Nation level of {} to Royal!".format(user_member.first_name))
+        rt + "\nSuccessfully set Union level of {} to Sudo!".format(user_member.first_name))
 
     log_message = (f"#SUDO\n"
                    f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
@@ -117,16 +117,16 @@ def addsupport(bot: Bot, update: Update, args: List[str]) -> str:
         data = json.load(infile)
 
     if user_id in SUDO_USERS:
-        rt += "Requested HA to deomote this Royal to Sakura"
+        rt += "Requested HA to deomote this Sudo to Support Union"
         data['sudos'].remove(user_id)
         SUDO_USERS.remove(user_id)
 
     if user_id in SUPPORT_USERS:
-        message.reply_text("This user is already a Sakura Nation.")
+        message.reply_text("This user is already a Support Union.")
         return ""
 
     if user_id in WHITELIST_USERS:
-        rt += "Requested HA to promote this Neptunia Nation to Sakura"
+        rt += "Requested HA to promote this Immunity to Support Union"
         data['whitelists'].remove(user_id)
         WHITELIST_USERS.remove(user_id)
 
@@ -136,7 +136,7 @@ def addsupport(bot: Bot, update: Update, args: List[str]) -> str:
     with open(ELEVATED_USERS_FILE, 'w') as outfile:
         json.dump(data, outfile, indent=4)
 
-    update.effective_message.reply_text(rt + f"\n{user_member.first_name} was added as a Sakura Nation!")
+    update.effective_message.reply_text(rt + f"\n{user_member.first_name} was added as a Support Union!")
 
     log_message = (f"#SUPPORT\n"
                    f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
@@ -169,17 +169,17 @@ def addwhitelist(bot: Bot, update: Update, args: List[str]) -> str:
         data = json.load(infile)
 
     if user_id in SUDO_USERS:
-        rt += "This member is a Royal Nation, Demoting to Neptunia."
+        rt += "This is a member of Sudo Union, Demoting to Immunity."
         data['sudos'].remove(user_id)
         SUDO_USERS.remove(user_id)
 
     if user_id in SUPPORT_USERS:
-        rt += "This user is already a Sakura Nation, Demoting to Neptunia."
+        rt += "This is a member of Support Union, Demoting to Immunity."
         data['supports'].remove(user_id)
         SUPPORT_USERS.remove(user_id)
 
     if user_id in WHITELIST_USERS:
-        message.reply_text("This user is already a Neptunia Nation.")
+        message.reply_text("This user is already a member of the Immunity Union.")
         return ""
 
     data['whitelists'].append(user_id)
@@ -189,7 +189,7 @@ def addwhitelist(bot: Bot, update: Update, args: List[str]) -> str:
         json.dump(data, outfile, indent=4)
 
     update.effective_message.reply_text(
-        rt + f"\nSuccessfully promoted {user_member.first_name} to a Neptunia Nation!")
+        rt + f"\nSuccessfully promoted {user_member.first_name} to Immunity Union!")
 
     log_message = (f"#WHITELIST\n"
                    f"<b>Admin:</b> {mention_html(user.id, user.first_name)} \n"
@@ -222,17 +222,17 @@ def addSardegna(bot: Bot, update: Update, args: List[str]) -> str:
         data = json.load(infile)
 
     if user_id in SUDO_USERS:
-        rt += "This member is a Royal Nation, Demoting to Sardegna."
+        rt += "This is a member of Sudo Union, Demoting to Sardegna."
         data['sudos'].remove(user_id)
         SUDO_USERS.remove(user_id)
 
     if user_id in SUPPORT_USERS:
-        rt += "This user is already a Sakura Nation, Demoting to Sardegna."
+        rt += "this is a member of Support Union, Demoting to Sardegna."
         data['supports'].remove(user_id)
         SUPPORT_USERS.remove(user_id)
 
     if user_id in WHITELIST_USERS:
-        rt += "This user is already a Neptunia Nation, Demoting to Sardegna."
+        rt += "This is a member of Immunity Union, Demoting to Sardegna."
         data['whitelists'].remove(user_id)
         WHITELIST_USERS.remove(user_id)
 
@@ -247,7 +247,7 @@ def addSardegna(bot: Bot, update: Update, args: List[str]) -> str:
         json.dump(data, outfile, indent=4)
 
     update.effective_message.reply_text(
-        rt + f"\nSuccessfully promoted {user_member.first_name} to a Sardegna Nation!")
+        rt + f"\nSuccessfully promoted {user_member.first_name} to Sardegna Union!")
 
     log_message = (f"#SARDEGNA\n"
                    f"<b>Admin:</b> {mention_html(user.id, user.first_name)} \n"
@@ -280,17 +280,17 @@ def addSardegna(bot: Bot, update: Update, args: List[str]) -> str:
         data = json.load(infile)
 
     if user_id in SUDO_USERS:
-        rt += "This member is a Royal Nation, Demoting to Sardegna."
+        rt += "This is a member of Sudo Union, Demoting to Sardegna."
         data['sudos'].remove(user_id)
         SUDO_USERS.remove(user_id)
 
     if user_id in SUPPORT_USERS:
-        rt += "This user is already a Sakura Nation, Demoting to Sardegna."
+        rt += "This is a member of Support Union, Demoting to Sardegna."
         data['supports'].remove(user_id)
         SUPPORT_USERS.remove(user_id)
 
     if user_id in WHITELIST_USERS:
-        rt += "This user is already a Neptunia Nation, Demoting to Sardegna."
+        rt += "This is a member of Immunity Union, Demoting to Sardegna."
         data['whitelists'].remove(user_id)
         WHITELIST_USERS.remove(user_id)
 
@@ -305,7 +305,7 @@ def addSardegna(bot: Bot, update: Update, args: List[str]) -> str:
         json.dump(data, outfile, indent=4)
 
     update.effective_message.reply_text(
-        rt + f"\nSuccessfully promoted {user_member.first_name} to a Sardegna Nation!")
+        rt + f"\nSuccessfully promoted {user_member.first_name} to Sardegna Union!")
 
     log_message = (f"#SARDEGNA\n"
                    f"<b>Admin:</b> {mention_html(user.id, user.first_name)} \n"
@@ -354,7 +354,7 @@ def removesudo(bot: Bot, update: Update, args: List[str]) -> str:
         return log_message
 
     else:
-        message.reply_text("This user is not a Royal Nation!")
+        message.reply_text("This user is not a Sudo Union Member!")
         return ""
 
 
@@ -395,7 +395,7 @@ def removesupport(bot: Bot, update: Update, args: List[str]) -> str:
         return log_message
 
     else:
-        message.reply_text("This user is not a Sakura level Nation!")
+        message.reply_text("This user is not a Support Union member!")
         return ""
 
 
@@ -435,7 +435,7 @@ def removewhitelist(bot: Bot, update: Update, args: List[str]) -> str:
 
         return log_message
     else:
-        message.reply_text("This user is not a Neptunia Nation!")
+        message.reply_text("This user is not an Immunity Union member!")
         return ""
 
 
@@ -475,14 +475,14 @@ def removeSardegna(bot: Bot, update: Update, args: List[str]) -> str:
 
         return log_message
     else:
-        message.reply_text("This user is not a Sardegna Nation!")
+        message.reply_text("This user is not a Sardegna Union member!")
         return ""
 
 
 @run_async
 @whitelist_plus
 def whitelistlist(bot: Bot, update: Update):
-    reply = "<b>Known Neptunia Nations 🐺:</b>\n"
+    reply = "<b>Known Immunity Union members 🐺:</b>\n"
     for each_user in WHITELIST_USERS:
         user_id = int(each_user)
         try:
@@ -497,7 +497,7 @@ def whitelistlist(bot: Bot, update: Update):
 @run_async
 @whitelist_plus
 def Sardegnalist(bot: Bot, update: Update):
-    reply = "<b>Known Sardegna Nations 🐯:</b>\n"
+    reply = "<b>Known Sardegna Union members 🐯:</b>\n"
     for each_user in SARDEGNA_USERS:
         user_id = int(each_user)
         try:
@@ -511,7 +511,7 @@ def Sardegnalist(bot: Bot, update: Update):
 @run_async
 @whitelist_plus
 def supportlist(bot: Bot, update: Update):
-    reply = "<b>Known Sakura Nations 👹:</b>\n"
+    reply = "<b>Known Support Union members 👹:</b>\n"
     for each_user in SUPPORT_USERS:
         user_id = int(each_user)
         try:
@@ -526,7 +526,7 @@ def supportlist(bot: Bot, update: Update):
 @whitelist_plus
 def sudolist(bot: Bot, update: Update):
     true_sudo = list(set(SUDO_USERS) - set(DEV_USERS))
-    reply = "<b>Known Royal Nations 🐉:</b>\n"
+    reply = "<b>Known Sudo Union members 🐉:</b>\n"
     for each_user in true_sudo:
         user_id = int(each_user)
         try:
@@ -541,7 +541,7 @@ def sudolist(bot: Bot, update: Update):
 @whitelist_plus
 def devlist(bot: Bot, update: Update):
     true_dev = list(set(DEV_USERS) - {OWNER_ID})
-    reply = "<b>Hero Union Members ⚡️:</b>\n"
+    reply = "<b>Dev Union Members ⚡️:</b>\n"
     for each_user in true_dev:
         user_id = int(each_user)
         try:
@@ -553,13 +553,11 @@ def devlist(bot: Bot, update: Update):
 
 
 __help__ = """
- - /Eagle - Lists all Hero Union members.
- - /Royals - Lists all Royal Nations.
- - /Sakuras - Lists all Sakura Nations.
- - /Sardegnas - Lists all Sardegnas Nations.
- - /Neptunians - Lists all Neptunia Nations.
+ - /DevU - Lists all Dev Union members.
+ - /SudoU - Lists all Sudo Union members.
+ - /SupportU - Lists all Support Union members.
+ - /ImmunityU - Lists all Immunity Union members.
  Note: These commands list users with special bot priveleges and can only be used by them.
- You can visit @YorktownEagleUnion to query more about these.
 """
 
 SUDO_HANDLER = CommandHandler(("addsudo", "addRoyal"), addsudo, pass_args=True)
@@ -571,11 +569,11 @@ UNSUPPORT_HANDLER = CommandHandler(("removesupport", "removeSakura"), removesupp
 UNSARDEGNA_HANDLER = CommandHandler(("removeSardegna"), removeSardegna, pass_args=True)
 UNWHITELIST_HANDLER = CommandHandler(("removewhitelist", "removeNeptunia"), removewhitelist, pass_args=True)
 
-WHITELISTLIST_HANDLER = CommandHandler(["whitelistlist", "Neptunians"], whitelistlist)
+WHITELISTLIST_HANDLER = CommandHandler(["whitelistlist", "ImmunityU"], whitelistlist)
 SARDEGNALIST_HANDLER = CommandHandler(["Sardegnas"], Sardegnalist)
-SUPPORTLIST_HANDLER = CommandHandler(["supportlist", "Sakuras"], supportlist)
-SUDOLIST_HANDLER = CommandHandler(["sudolist", "Royals"], sudolist)
-DEVLIST_HANDLER = CommandHandler(["devlist", "Eagle"], devlist)
+SUPPORTLIST_HANDLER = CommandHandler(["supportlist", "SupportU"], supportlist)
+SUDOLIST_HANDLER = CommandHandler(["sudolist", "SudoU"], sudolist)
+DEVLIST_HANDLER = CommandHandler(["devlist", "DevU"], devlist)
 
 dispatcher.add_handler(SUDO_HANDLER)
 dispatcher.add_handler(SUPPORT_HANDLER)
