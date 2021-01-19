@@ -137,22 +137,22 @@ def info(bot: Bot, update: Update, args: List[str]):
     Nation_level_present = False
 
     if user.id == OWNER_ID:
-        text += "\nThe Nation level of this person is 'God'."
+        text += "\nThe Union level of this person is 'God'."
         Nation_level_present = True
     elif user.id in DEV_USERS:
-        text += "\nThis member is one of 'Hero Union'."
+        text += "\nThis member is one of 'Dev Union'."
         Nation_level_present = True
     elif user.id in SUDO_USERS:
-        text += "\nThe Nation level of this person is 'Royal'."
+        text += "\nThe Union level of this person is 'Sudo'."
         Nation_level_present = True
     elif user.id in SUPPORT_USERS:
-        text += "\nThe Nation level of this person is 'Sakura'."
+        text += "\nThe Union level of this person is 'Support'."
         Nation_level_present = True
     elif user.id in SARDEGNA_USERS:
-        text += "\nThe Nation level of this person is 'Sardegna'."
+        text += "\nThe Union level of this person is 'Sardegna'."
         Nation_level_present = True
     elif user.id in WHITELIST_USERS:
-        text += "\nThe Nation level of this person is 'Neptunia'."
+        text += "\nThe Union level of this person is 'Immunity'."
         Nation_level_present = True
 
     if Nation_level_present:

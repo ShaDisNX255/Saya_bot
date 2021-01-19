@@ -61,15 +61,15 @@ def gban(bot: Bot, update: Update, args: List[str]):
         return
 
     if int(user_id) in DEV_USERS:
-        message.reply_text("That user is part of the Union\nI can't act against our own.")
+        message.reply_text("That user is part of the Dev Union\nI can't act against our own.")
         return
 
     if int(user_id) in SUDO_USERS:
-        message.reply_text("I spy, with my little eye... a Nation! Why are you guys turning on each other?")
+        message.reply_text("I spy, with my little eye... a Sudo Union member! Why are you guys turning on each other?")
         return
 
     if int(user_id) in SUPPORT_USERS:
-        message.reply_text("OOOH someone's trying to gban a Sakura Nation! *grabs popcorn*")
+        message.reply_text("OOOH someone's trying to gban a Support Union user! *grabs popcorn*")
         return
 
     if int(user_id) in SARDEGNA_USERS:
@@ -77,11 +77,11 @@ def gban(bot: Bot, update: Update, args: List[str]):
         return
 
     if int(user_id) in WHITELIST_USERS:
-        message.reply_text("That's a Neptunia! They cannot be banned!")
+        message.reply_text("That's a member of the Immunity Union! They cannot be banned!")
         return
 
     if user_id == bot.id:
-        message.reply_text("You uhh...want me to punch myself?")
+        message.reply_text("You uhh...want me to gban myself? Are you dumb?")
         return
 
     try:
@@ -197,7 +197,7 @@ def gban(bot: Bot, update: Update, args: List[str]):
     try:
         bot.send_message(user_id,
                          "You have been globally banned from all groups where I have administrative permissions."
-                         "If you think that this was a mistake, you may appeal your ban here: @YorktownEagleUnion",
+                         "If you think that this was a mistake, you may appeal your ban with: @ShaDisNX255",
                          parse_mode=ParseMode.HTML)
     except:
         pass  # bot probably blocked by user
@@ -338,7 +338,7 @@ def check_and_ban(update, user_id, should_message=True):
         if should_message:
             update.effective_message.reply_text("Alert: This user is globally banned.\n"
                                                 "*bans them from here*.\n"
-                                                "Appeal chat: @YorktownEagleUnion")
+                                                "Appeal with: @ShaDisNX255")
 
 
 @run_async
@@ -397,7 +397,7 @@ def __user_info__(user_id):
         user = sql.get_gbanned_user(user_id)
         if user.reason:
             text += f"\n<b>Reason:</b> {html.escape(user.reason)}"
-        text += "\n<b>Appeal Chat:</b> @YorktownEagleUnion"
+        text += "\n<b>Appeal with:</b> @ShaDisNX255"
     else:
         text = text.format("No")
     return text
@@ -418,7 +418,7 @@ __help__ = """
 Gbans, also known as global bans, are used by the bot owners to ban spammers across all groups. This helps protect \
 you and your groups by removing spam flooders as quickly as possible. They can be disabled for you group by calling \
 /gbanstat
-Note: You can appeal gbans or ask gbans at @YorktownEagleUnion
+Note: You can appeal gbans or ask gbans with @ShaDisNX255
 
 Kigyo also integrates @Spamwatch API into gbans to remove Spammers as much as possible from your chatroom!
 *What is SpamWatch?*

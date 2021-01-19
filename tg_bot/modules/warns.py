@@ -39,9 +39,9 @@ def warn(user: User, chat: Chat, reason: str, message: Message, warner: User = N
 
     if user.id in WHITELIST_USERS:
         if warner:
-            message.reply_text("Neptunia Nations are warn immune.")
+            message.reply_text("This user is in the Immunity Union or above and can't be warned.")
         else:
-            message.reply_text("Neptunia Nation triggered an auto warn filter!\n I can't warn Neptunians but they should avoid abusing this.")
+            message.reply_text("An Immunity Union member or above triggered an auto warn filter!\n I can't warn this user but they should avoid abusing this.")
         return
 
     if warner:
