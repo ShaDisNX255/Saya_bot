@@ -1,5 +1,5 @@
-from tb_bot.modules.helper_funcs.telethn import IMMUNE_USERS, telethn
-from tb_bot import IMMUNE_USERS
+from tg_bot.modules.helper_funcs.telethn import IMMUNE_USERS, telethn
+from tg_bot import IMMUNE_USERS
 from telethon.tl.types import ChannelParticipantsAdmins
 
 
