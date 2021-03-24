@@ -292,7 +292,7 @@ def left_member(bot: Bot, update: Update):
 
             # Give the owner a special goodbye
             if left_mem.id == OWNER_ID:
-                update.effective_message.reply_text("Oi! Genos! He left..")
+                update.effective_message.reply_text("H-Hey, where are you going..? ˃ᆺ˂")
                 return
 
             # Give the devs a special goodbye
