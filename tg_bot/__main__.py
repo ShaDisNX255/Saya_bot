@@ -23,7 +23,8 @@ I am an Anime themed group management bot with some fun extras ;)
 
 You can find the list of available commands with /help.
 
-[Kigyō's Repo](https://github.com/Dank-del/EnterpriseALRobot) 
+[Saya's Repo](https://github.com/ShaDisNX/Saya_bot)
+[Kigyō's Repo](https://github.com/Dank-del/EnterpriseALRobot)
 
 Saya Bot specifically edited by @ShaDisNX255
 Special thanks to @Roddyboii for the idea and suggestions
