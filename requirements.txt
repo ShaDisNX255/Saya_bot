@@ -23,3 +23,6 @@ speedtest-cli
 coffeehouse
 spamwatch
 telethon
+youtube_dl
+youtube-search-python
+pytz
